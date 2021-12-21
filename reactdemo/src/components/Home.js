@@ -32,12 +32,17 @@ react获取服务器API接口的数据
 import React , {Component} from 'react';
 import '../assets/css/index.css'
 import Axios from './Axios'
+<<<<<<< HEAD
+=======
+import Testcomponent from './Testcomponent'
+>>>>>>> ebf690c1b211deebeeb774735306f25cda32a6e7
 
 
 class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {  
+<<<<<<< HEAD
             title:'首页组件'
         };
     }
@@ -45,6 +50,57 @@ class Home extends Component {
         return (
             <div>
                 <Axios />
+=======
+            title:'首页组件props',
+            name:'testprops',
+            jieshoucanshu:'',
+            subtitle:''
+        };
+    }
+    getDatas = (props) =>{
+        console.log(props,111111)
+        //把子组件传递过来的值赋给this.state中的属性
+        this.setState({
+            jieshoucanshu:props
+        });
+    }
+
+    getSubtitle = (props) =>{
+        console.log(props,2222)
+        //把子组件传递过来的值赋给this.state中的属性
+        this.setState({
+            subtitle:props
+        });
+    }
+
+    getDataNull = () =>{
+
+    }
+    render() {
+        return (
+            <div>
+                <Axios title={this.state.title} name={this.state.name} showElem={false} getdata={this.getDataNull}/>
+               <br/>
+                <hr/>
+                <br/>
+                <Axios showElem={true} getdata={this.getDatas}/>
+                <p>
+                    1.父组件向子组件传值：直接在子组件的标签上写上自定义的参数名称
+                    2.子传父：子组件首先this.props.getdata(参数);然后父组件在子组件的标签上用getdata接收参数
+                    然后渲染://{this.state.jieshoucanshu}//
+                </p>
+                <br/>
+                <br/>
+                <hr/>
+                <br/>
+                <br/>
+
+                <Testcomponent showElem={false} jieshoucanshu={this.state.jieshoucanshu?'标题:'+this.state.jieshoucanshu:''} />
+                <hr/>
+                <Testcomponent showElem={true} getdata={this.getSubtitle} />
+                <hr/>
+                {this.state.subtitle}
+>>>>>>> ebf690c1b211deebeeb774735306f25cda32a6e7
             </div>
 
         );

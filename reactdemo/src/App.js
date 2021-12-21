@@ -37,6 +37,15 @@ class App extends Component {
           <Link to='/'>首页</Link>
           <br />
           <Link to='/news'>新闻</Link>
+<<<<<<< HEAD
+=======
+
+
+
+          <br />
+          <br/>
+          <hr/>
+>>>>>>> ebf690c1b211deebeeb774735306f25cda32a6e7
           <Route exact path='/' component={Home}></Route>
           <Route path='/news' component={News}></Route>
         </div>
